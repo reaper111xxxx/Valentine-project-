@@ -52,21 +52,21 @@ noButton.addEventListener("click" , function(){
     }
 
     const baseWidth = parseFloat(yesButtonStyle.width);
-    const scaledWidth = baseWidth * yesScale;//shows size of the button
+    const scaledWidth = baseWidth * yesScale;
 
     console.log(`Scaled Width: ${scaledWidth}, Max Width: ${maxYesWidth}`);
 
     if (scaledWidth < maxYesWidth) {
-        yesScale += 0.5; // Increment scale by a smaller step
+        yesScale += 0.5; 
         yesButton.style.transform = `scale(${yesScale})`;
 
-        // Get the current gap scale factor from CSS
+        
         const rootStyles = getComputedStyle(document.documentElement);
         const gapScaleFactor = parseFloat(rootStyles.getPropertyValue("--gap-scale-factor")) || 250;
 
-        // Adjust the gap dynamically
+       
         const currentGap = parseFloat(buttonContainer.style.gap) || 20;
-        const newGap = Math.sqrt(currentGap * gapScaleFactor); // Scale based on the factor
+        const newGap = Math.sqrt(currentGap * gapScaleFactor); 
         buttonContainer.style.gap = `${newGap}px`;
     }
 
